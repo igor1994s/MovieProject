@@ -34,12 +34,20 @@ public class FilmController {
         return modelAndView;
     }
 
+    @GetMapping(value = "/delete/{id}")
+    public ModelAndView deleteFilm(@PathVariable ("id") int id){
+        ModelAndView modelAndView=new ModelAndView();
+        filmService.delete(id);
+        modelAndView.setViewName("redirect:/");
+        return modelAndView;
+    }
+
+
     @GetMapping(value = "/add")
     public ModelAndView addPage() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editPage");
         return modelAndView;
-
     }
 
     @PostMapping(value = "/add")

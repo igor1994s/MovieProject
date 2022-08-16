@@ -52,8 +52,8 @@ public class FilmRepositoryImpl implements FilmRepository {
     }
 
     @Override
-    public void delete(Film film) {
-        films.remove(film.getId());
+    public void delete(int id) {
+        films.remove(id);
     }
 
     @Override

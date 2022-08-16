@@ -20,8 +20,8 @@ public class FilmServiceImpl implements FilmService{
     }
 
     @Override
-    public void delete(Film film) {
-        filmRepository.delete(film);
+    public void delete(int id) {
+        filmRepository.delete(id);
     }
 
     @Override
