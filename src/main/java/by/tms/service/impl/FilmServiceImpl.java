@@ -1,13 +1,24 @@
-package by.tms.service;
+package by.tms.service.impl;
 
 import by.tms.model.Film;
 import by.tms.repository.FilmRepository;
 import by.tms.repository.impl.FilmRepositoryImpl;
+import by.tms.service.FilmService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class FilmServiceImpl implements FilmService{
-    private FilmRepository filmRepository=new FilmRepositoryImpl();
+@Service
+public class FilmServiceImpl implements FilmService {
+
+    private final FilmRepository filmRepository;
+
+    @Autowired
+    public FilmServiceImpl(FilmRepository filmRepository){
+        this.filmRepository=filmRepository;
+
+    }
 
     @Override
     public List<Film> allFilms() {

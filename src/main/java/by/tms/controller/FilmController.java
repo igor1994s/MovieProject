@@ -2,7 +2,8 @@ package by.tms.controller;
 
 import by.tms.model.Film;
 import by.tms.service.FilmService;
-import by.tms.service.FilmServiceImpl;
+import by.tms.service.impl.FilmServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,8 +13,12 @@ import java.util.List;
 @Controller
 public class FilmController {
 
-    public FilmService filmService = new FilmServiceImpl();
+    private final FilmService filmService;
 
+    @Autowired
+    public FilmController(FilmService filmService) {
+        this.filmService = filmService;
+    }
 
     //@RequestMapping(value ="/", method = RequestMethod.GET)
     @GetMapping(value = "/")
