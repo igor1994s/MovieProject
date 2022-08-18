@@ -40,8 +40,8 @@ public class FilmController {
     }
 
     @GetMapping(value = "/delete/{id}")
-    public ModelAndView deleteFilm(@PathVariable ("id") int id){
-        ModelAndView modelAndView=new ModelAndView();
+    public ModelAndView deleteFilm(@PathVariable("id") int id) {
+        ModelAndView modelAndView = new ModelAndView();
         filmService.delete(id);
         modelAndView.setViewName("redirect:/");
         return modelAndView;
